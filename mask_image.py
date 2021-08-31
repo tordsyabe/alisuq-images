@@ -75,8 +75,15 @@ def resize_to_1024(img):
 
 
 def image_mask_resize(new_folder_name):
-    image_path = "static/images_for_mask/" + new_folder_name
-    save_image_path = "static/masked_images/" + new_folder_name
+    APP_ROOT = APP_ROOT = os.path.dirname(os.path.abspath(__file__))
+    
+    
+    masked_images = os.path.join(APP_ROOT, "static/masked_images/")
+    if not os.path.isdir(masked_images):
+        os.mkdir(masked_images)
+    
+    image_path = os.path.join(APP_ROOT, "static/images_for_mask/" + new_folder_name)
+    save_image_path = os.path.join(APP_ROOT, "static/masked_images/" + new_folder_name)
     
     os.mkdir(save_image_path)
     images = os.listdir(image_path)

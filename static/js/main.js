@@ -1,6 +1,9 @@
 $(document).ready(function () {
   $("#images").on("change", function () {
     const imagePreview = $("#imagePreview");
+    if (imagePreview.children()) {
+      imagePreview.children().remove();
+    }
     images = "";
 
     const files = $(this).prop("files");
