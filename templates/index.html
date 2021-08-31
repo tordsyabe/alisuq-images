@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Alisuq images</title>
+  </head>
+  <body>
+    <h1>Alisuq</h1>
+    <p>Mask image and resize to 1024 x 1024</p>
+
+    <form method="POST" enctype="multipart/form-data">
+      <input
+        type="file"
+        name="images"
+        id="images"
+        multiple
+        accept="image/png, image/jpeg, image/jpg"
+      />
+      <label for="category">Category</label>
+      <input type="text" name="category" id="category" />
+      <label for="usage">Usage</label>
+      <input type="text" name="usage" id="usage" />
+      <input type="submit" value="upload" />
+
+      <!-- <label for="color">Color</label>
+      <input type="text" name="color" id="color" /> -->
+
+      <br />
+      <div id="imagePreview"></div>
+    </form>
+
+    <div id="staff"></div>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="{{url_for('static', filename='js/main.js')}}"></script>
+  </body>
+</html>
