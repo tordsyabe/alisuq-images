@@ -6,31 +6,40 @@
     <link rel="stylesheet" href="./static/css/main.css" />
   </head>
   <body>
-    <h1>Alisuq</h1>
-    <p>Mask image and resize to 1024 x 1024</p>
+    <div class="container">
+      <div>
+        <h1>Alisuq</h1>
+        <p>Mask image and resize to 1024 x 1024</p>
+      </div>
+      <form method="POST" enctype="multipart/form-data" id="uploadForm">
+        <div>
+          <input
+            type="file"
+            name="images"
+            id="images"
+            multiple
+            accept="image/png, image/jpeg, image/jpg"
+          />
+          <label for="images" class="btn">Select Photos</label>
+        </div>
+        <div>
+          <label for="category">Category</label>
+          <input type="text" name="category" id="category" />
+        </div>
 
-    <form method="POST" enctype="multipart/form-data" id="uploadForm">
-      <input
-        type="file"
-        name="images"
-        id="images"
-        multiple
-        accept="image/png, image/jpeg, image/jpg"
-      />
-      <label for="category">Category</label>
-      <input type="text" name="category" id="category" />
-      <label for="usage">Usage</label>
-      <input type="text" name="usage" id="usage" />
-      <input type="submit" value="upload" />
+        <label for="usage">Usage</label>
+        <input type="text" name="usage" id="usage" />
+        <input type="submit" value="upload" class="btn" />
 
-      <!-- <label for="color">Color</label>
+        <!-- <label for="color">Color</label>
       <input type="text" name="color" id="color" /> -->
 
-      <br />
-      <div id="imagePreview"></div>
-    </form>
+        <br />
+        <div id="imagePreview"></div>
+      </form>
 
-    <div id="staff"></div>
+      <div id="staff"></div>
+    </div>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="{{url_for('static', filename='js/main.js')}}"></script>
   </body>
