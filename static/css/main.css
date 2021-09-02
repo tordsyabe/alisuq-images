@@ -1,0 +1,40 @@
+.upload-preview__img {
+  object-fit: contain;
+  height: 100%;
+  width: 80%;
+}
+
+.upload-preview {
+  height: 200px;
+  width: 150px;
+  text-align: center;
+  margin: 10px;
+  transition: 0.3s;
+  border: 0.5px solid rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  position: relative;
+}
+
+.upload-preview span::after {
+  display: inline-block;
+  content: "\00d7";
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px 10px;
+  font-size: 1.5rem;
+}
+
+.upload-preview:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+}
+
+#imagePreview {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 5rem;
+}
+
+#uploadForm {
+  margin: 30px;
+}
