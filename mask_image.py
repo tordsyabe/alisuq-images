@@ -89,15 +89,19 @@ def image_mask_resize(new_folder_name):
     images = os.listdir(image_path)
 
     for image in images:
-        s_img = cv2.imread(f"{image_path}/{image}", cv2.IMREAD_UNCHANGED)
+        
+        try:
+            s_img = cv2.imread(f"{image_path}/{image}", cv2.IMREAD_UNCHANGED)
 
-        s_img = four_channels(s_img)
+            s_img = four_channels(s_img)
 
-        s_img = cut(s_img)
+            s_img = cut(s_img)
 
-        s_img = trans_bg(s_img)
+            s_img = trans_bg(s_img)
 
-        s_img = resize_to_1024(s_img)
+            s_img = resize_to_1024(s_img)
 
-        filename = image.split(".")[0] + '.png'
-        cv2.imwrite(f"{save_image_path}/{filename}", s_img)
+            filename = image.split(".")[0] + '.png'
+            cv2.imwrite(f"{save_image_path}/{filename}", s_img)
+        except Exception as e:
+            continue

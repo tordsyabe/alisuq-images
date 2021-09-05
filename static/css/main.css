@@ -29,6 +29,7 @@ body {
   border: 0.5px solid rgba(0, 0, 0, 0.05);
   cursor: pointer;
   position: relative;
+  margin-left: 1rem;
   margin-bottom: 10px;
 }
 
@@ -49,8 +50,6 @@ body {
 
 #imagePreview {
   display: flex;
-  justify-content: space-between;
-
   flex-wrap: wrap;
   margin-top: 5rem;
 }
@@ -61,6 +60,14 @@ body {
 
 #images {
   display: none;
+}
+
+#images + label {
+  margin: 4rem;
+}
+
+.upload {
+  text-align: center;
 }
 
 .btn {
