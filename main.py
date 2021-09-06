@@ -52,16 +52,10 @@ def index():
             
         failed_img = [img for img in uploaded_img if img not in masked_img]
             
-        print(failed_img)
         
         shutil.make_archive(new_folder_name, "zip", os.path.join(download_path, new_folder_name))
 
-        res = send_file(f"{new_folder_name.rstrip(new_folder_name[-1])}.zip", as_attachment=True)
-        
-        for f_img, idx in enumerate(failed_img):
-            
-            res.set_cookie(f"failed_img_{idx}", f_img)
-        return res
+        return send_file(f"{new_folder_name.rstrip(new_folder_name[-1])}.zip", as_attachment=True)
 
     return render_template("index.html")
 

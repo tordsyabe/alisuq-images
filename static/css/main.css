@@ -4,13 +4,19 @@
   padding: 0;
 }
 body {
-  font-family: Arial, Helvetica, sans-serif;
   line-height: 1.6;
+  font-family: "Fira Sans", sans-serif;
+}
+
+h1 {
+  font-size: 5rem;
+  letter-spacing: 5px;
+  font-family: "Alfa Slab One", cursive;
 }
 
 .container {
   max-width: 1140px;
-  margin: 1rem auto;
+  margin: 0 auto;
   overflow: auto;
   padding: 0 2rem;
 }
@@ -51,11 +57,6 @@ body {
 #imagePreview {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 5rem;
-}
-
-#uploadForm {
-  margin: 30px;
 }
 
 #images {
@@ -79,6 +80,9 @@ body {
   font-size: 16px;
   cursor: pointer;
   background-color: lightgray;
+  text-transform: uppercase;
+  background-color: #ffc832;
+  font-family: "Alfa Slab One", cursive;
 }
 
 input[type="text"] {
@@ -89,4 +93,12 @@ input[type="text"] {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+}
+
+.mt-1 {
+  margin-top: 1rem;
+}
+
+.mx-1 {
+  margin: 0 1rem;
 }
