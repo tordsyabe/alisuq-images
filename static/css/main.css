@@ -28,15 +28,17 @@ h1 {
 }
 
 .upload-preview {
-  height: 200px;
-  width: 150px;
+  height: 180px;
+  width: 180px;
   text-align: center;
   transition: 0.3s;
-  border: 0.5px solid rgba(0, 0, 0, 0.05);
+  border: 6px solid black;
   cursor: pointer;
   position: relative;
   margin-left: 1rem;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: #ffc832;
 }
 
 .upload-preview span::after {
