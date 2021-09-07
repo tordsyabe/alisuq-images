@@ -14,6 +14,7 @@ APP_ROOT = APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 def index():
     upload_path = os.path.join(APP_ROOT, 'static/images_for_mask/')
     download_path = os.path.join(APP_ROOT, 'static/masked_images/')
+    zip_path = os.path.join(APP_ROOT, 'static/zip_files/')
 
     if not os.path.isdir(upload_path):
         os.mkdir(upload_path)
@@ -51,11 +52,13 @@ def index():
             masked_img.append(m_img.split(".")[0])
             
         failed_img = [img for img in uploaded_img if img not in masked_img]
-            
         
-        shutil.make_archive(new_folder_name, "zip", os.path.join(download_path, new_folder_name))
+        if not os.path.isdir(zip_path):
+            os.mkdir(zip_path)
+        
+        shutil.make_archive(os.path.join(zip_path, new_folder_name), "zip", os.path.join(download_path, new_folder_name))
 
-        return send_file(f"{new_folder_name.rstrip(new_folder_name[-1])}.zip", as_attachment=True)
+        return send_file(f"{os.path.join(zip_path, new_folder_name.rstrip(new_folder_name[-1]))}.zip", as_attachment=True)
 
     return render_template("index.html")
 

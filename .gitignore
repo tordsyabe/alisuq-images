@@ -92,3 +92,4 @@ ENV/
 
 /static/images_for_mask/
 /static/masked_images/
+/static/zip_files/
