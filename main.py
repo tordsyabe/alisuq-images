@@ -16,10 +16,20 @@ def index():
     download_path = os.path.join(APP_ROOT, 'static/masked_images/')
     zip_path = os.path.join(APP_ROOT, 'static/zip_files/')
 
-    if not os.path.isdir(upload_path):
-        os.mkdir(upload_path)
+
+    
+    if request.method == 'GET':     
+        shutil.rmtree(upload_path, ignore_errors=True)
+        shutil.rmtree(download_path, ignore_errors=True)
+        shutil.rmtree(zip_path, ignore_errors=True)
 
     if request.method == 'POST':
+        
+        if not os.path.isdir(upload_path):
+            os.mkdir(upload_path)
+        
+        if not os.path.isdir(zip_path):
+            os.mkdir(zip_path)
         
         category = request.form["category"].strip()
         usage = request.form["usage"].strip()
@@ -53,9 +63,7 @@ def index():
             
         failed_img = [img for img in uploaded_img if img not in masked_img]
         
-        if not os.path.isdir(zip_path):
-            os.mkdir(zip_path)
-        
+
         shutil.make_archive(os.path.join(zip_path, new_folder_name), "zip", os.path.join(download_path, new_folder_name))
 
         return send_file(f"{os.path.join(zip_path, new_folder_name.rstrip(new_folder_name[-1]))}.zip", as_attachment=True)
