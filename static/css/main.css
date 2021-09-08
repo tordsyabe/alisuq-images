@@ -104,3 +104,24 @@ input[type="text"] {
 .mx-1 {
   margin: 0 1rem;
 }
+
+.error-message {
+  background-color: red;
+  padding: 10px;
+  display: none;
+  justify-content: space-between;
+  margin: 1rem 0;
+  position: relative;
+  color: white;
+}
+
+.error-message span::after {
+  display: inline-block;
+  content: "\00d7";
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px 10px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}

@@ -59,9 +59,15 @@ $(document).ready(function () {
         $("#uploadBtn").val("Mask & Resize");
       },
       error: function (e) {
-        console.log(e);
+        $(".error-message span").css("display", "flex");
+        $("#uploadBtn").attr("disabled", false);
+        $("#uploadBtn").val("Mask & Resize");
       },
     });
+  });
+
+  $(".error-message span").on("click", function (e) {
+    $(this).parent().css("display", "none");
   });
 
   $("#uploadBtn").attr("disabled", true);

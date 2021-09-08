@@ -23,8 +23,17 @@
       <p>{{request.cookies.get('hello')}}</p>
       {% endif %}
       <div>
-        <img src="https://cdn.shopify.com/s/files/1/0265/5915/2231/files/alisuq2000x2000_155x@2x.png?v=1606193320" alt="alisuq.com"/>
+        <img
+          src="https://cdn.shopify.com/s/files/1/0265/5915/2231/files/alisuq2000x2000_155x@2x.png?v=1606193320"
+          alt="alisuq.com"
+        />
         <p>Mask image and resize to 1024 x 1024</p>
+        <div class="error-message">
+          <p>
+            There was an error while processing the images, please try again.
+          </p>
+          <span></span>
+        </div>
       </div>
       <form method="POST" enctype="multipart/form-data" id="uploadForm">
         <div class="upload">
@@ -44,7 +53,7 @@
         </div>
 
         <label for="usage">Usage</label>
-        <input type="text" name="usage" id="usage" required />
+        <input type="text" name="usage" id="usage" />
         <input
           type="submit"
           id="uploadBtn"

@@ -18,10 +18,10 @@ def index():
 
 
     
-    if request.method == 'GET':     
-        shutil.rmtree(upload_path, ignore_errors=True)
-        shutil.rmtree(download_path, ignore_errors=True)
-        shutil.rmtree(zip_path, ignore_errors=True)
+    # if request.method == 'GET':     
+    #     shutil.rmtree(upload_path, ignore_errors=True)
+    #     shutil.rmtree(download_path, ignore_errors=True)
+    #     shutil.rmtree(zip_path, ignore_errors=True)
 
     if request.method == 'POST':
         
@@ -46,7 +46,10 @@ def index():
         for file in request.files.getlist("images"):
             sku = file.filename[:6]
             # file_extension = pathlib.PurePosixPath(file.filename).suffix
-            file.save(final_upload_path + f"{sku}-{category}-{usage}-{file.filename}")
+            try:
+                file.save(final_upload_path + f"{sku}-{category}-{usage}-{file.filename}")
+            except FileNotFoundError:
+                continue
             
         image_mask_resize(new_folder_name)
         
