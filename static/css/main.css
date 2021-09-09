@@ -105,6 +105,10 @@ input[type="text"] {
   margin: 0 1rem;
 }
 
+.my-1 {
+  margin: 1rem 0;
+}
+
 .error-message {
   background-color: red;
   padding: 10px;
@@ -124,4 +128,8 @@ input[type="text"] {
   padding: 5px 10px;
   font-size: 1.5rem;
   cursor: pointer;
+}
+
+.upload-percentage {
+  display: none;
 }

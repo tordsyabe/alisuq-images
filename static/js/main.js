@@ -28,6 +28,7 @@ $(document).ready(function () {
 
     $("#uploadBtn").attr("disabled", true);
     $("#uploadBtn").val("Processing images...");
+    $(".upload-percentage").css("display", "block");
     const category = $("input[name=category").val();
     const usage = $("input[name=usage").val();
 
@@ -49,6 +50,21 @@ $(document).ready(function () {
       data: form_data,
       xhrFields: {
         responseType: "blob",
+      },
+      xhr: function () {
+        var xhr = new window.XMLHttpRequest();
+        xhr.upload.addEventListener(
+          "progress",
+          function (evt) {
+            if (evt.lengthComputable) {
+              var percentComplete = (evt.loaded / evt.total) * 100;
+              console.log(percentComplete);
+              $(".upload-percentage__value").html(parseInt(percentComplete));
+            }
+          },
+          false
+        );
+        return xhr;
       },
       success: function (blob) {
         var link = document.createElement("a");
