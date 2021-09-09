@@ -73,6 +73,7 @@ $(document).ready(function () {
         link.click();
         $("#uploadBtn").attr("disabled", false);
         $("#uploadBtn").val("Mask & Resize");
+        $(".upload-percentage").css("display", "none");
       },
       error: function (e) {
         $(".error-message span").css("display", "flex");
